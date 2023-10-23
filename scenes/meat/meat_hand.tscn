@@ -1,14 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://488lfsbxxuku"]
+[gd_scene load_steps=2 format=3 uid="uid://488lfsbxxuku"]
 
 [ext_resource type="PackedScene" uid="uid://daspeqoiacqq2" path="res://scenes/meat/meat.tscn" id="1_fuun0"]
-[ext_resource type="ArrayMesh" uid="uid://uh1pxb0erdxu" path="res://materials/mesh/meat_hand_mesh.tres" id="2_ivgp8"]
-[ext_resource type="Shape3D" uid="uid://tcalvcvuww4q" path="res://materials/collision/meat_hand_collision.tres" id="3_0221g"]
 
 [node name="MeatHand" instance=ExtResource("1_fuun0")]
-
-[node name="MeatMesh" parent="." index="0"]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0)
-mesh = ExtResource("2_ivgp8")
-
-[node name="MeatCollision" parent="." index="1"]
-shape = ExtResource("3_0221g")
