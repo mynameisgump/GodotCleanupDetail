@@ -19,10 +19,8 @@ func _on_body_entered(body: StaticBody3D):
 func _integrate_forces(state):
 	var total_contacts = state.get_contact_count();
 	if total_contacts > 0 and blood_timer.is_stopped():
-		print(state.get_contact_local_position(0));
 		var pos = state.get_contact_collider_position(0);
-		var nor = state.get_contact_collider_position(0)
-		var contact_point = self.global_position-0.5*nor
+		var nor = state.get_contact_local_normal(0);
 		spawn_blood.emit(pos,nor)
 		blood_timer.start();
 		
