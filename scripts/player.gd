@@ -79,10 +79,6 @@ func on_full_grabber():
 	else:
 		grabbed_item.rotate_x(x_rotation);
 		grabbed_item.rotate_y(y_rotation);
-		#rotation.x = clamp(rotation.x, -1.5, 1.5)
-
-		#character.rotation.y -= event.relative.x * MOUSE_SENS * 0.001
-		#character.rotation.y = wrapf(character.rotation.y, 0.0, TAU)
 
 	if Input.is_action_just_released("left_mouse"): 
 		let_go();

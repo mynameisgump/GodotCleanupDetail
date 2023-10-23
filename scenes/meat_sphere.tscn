@@ -8,14 +8,15 @@ transparency = 1
 albedo_texture = ExtResource("2_5f7pq")
 
 [sub_resource type="SphereMesh" id="SphereMesh_po3ct"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_jyj8q")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1j2nr"]
+resource_local_to_scene = true
 
 [node name="MeatSphere" type="RigidBody3D" groups=["Meat"]]
 collision_layer = 4
 collision_mask = 3
-gravity_scale = -1.0
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_v5e0q")
@@ -30,5 +31,3 @@ shape = SubResource("SphereShape3D_1j2nr")
 [node name="BloodTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

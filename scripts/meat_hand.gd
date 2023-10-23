@@ -1,4 +1,4 @@
-class_name MeatSphere
+class_name MeatHand
 extends RigidBody3D
 
 @onready var blood_timer: Timer = $BloodTimer
@@ -12,6 +12,12 @@ var linear_vel = null;
 var entered_blood = false;
 var overlapping = []
 var max_overlapping = 1;
+
+func _ready():
+	pass
+
+func _process(delta):
+	pass
 
 func update_velocity(lv): 
 	linear_vel = lv;
@@ -28,4 +34,6 @@ func _integrate_forces(state):
 			var nor: Vector3 = state.get_contact_local_normal(0);
 			spawn_blood.emit(pos,nor);
 			blood_timer.start();
-
+			
+func _on_body_entered(body: StaticBody3D):
+	pass 

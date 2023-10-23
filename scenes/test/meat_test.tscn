@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvs4bsiji1nnq"]
+
+[ext_resource type="PackedScene" uid="uid://daspeqoiacqq2" path="res://scenes/base/meat.tscn" id="1_fsrax"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3n84a"]
+radius = 0.824959
+
+[node name="Meat" instance=ExtResource("1_fsrax")]
+
+[node name="MeatCollision" parent="." index="1"]
+shape = SubResource("SphereShape3D_3n84a")
