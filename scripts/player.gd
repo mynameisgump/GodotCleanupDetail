@@ -47,6 +47,19 @@ var rotating;
 var prev_mouse_position;
 var next_mouse_position;
 
+const MOUSE_SENS : float = 3.0
+
+var x_rotation;
+var y_rotation;
+
+signal begin_rotating(value);
+
+func _input(event : InputEvent) -> void:
+	
+	if event is InputEventMouseMotion:
+		x_rotation = event.relative.y * MOUSE_SENS * 0.001;
+		y_rotation = event.relative.x * MOUSE_SENS * 0.001
+
 func handle_grabber(): 
 	if grabbed_item == null: 
 		on_empty_grabber() 
@@ -63,6 +76,14 @@ func on_full_grabber():
 		var expected_translation = head.to_global(grabbed_item_rel_pos) 
 		var linear_vel = expected_translation - grabbed_item.position 
 		grabbed_item.update_velocity(linear_vel) 
+	else:
+		grabbed_item.rotate_x(x_rotation);
+		grabbed_item.rotate_y(y_rotation);
+		#rotation.x = clamp(rotation.x, -1.5, 1.5)
+
+		#character.rotation.y -= event.relative.x * MOUSE_SENS * 0.001
+		#character.rotation.y = wrapf(character.rotation.y, 0.0, TAU)
+
 	if Input.is_action_just_released("left_mouse"): 
 		let_go();
 
@@ -103,9 +124,11 @@ func handle_input(delta : float) -> void:
 	if Input.is_action_just_pressed("rotate"):
 		if grabbed_item != null:
 			rotating = true
+			begin_rotating.emit(true)
 
 	if Input.is_action_just_released("rotate"):
 		rotating = false;
+		begin_rotating.emit(false)
 
 func handle_movement(delta : float) -> void:
 	if not is_on_floor():

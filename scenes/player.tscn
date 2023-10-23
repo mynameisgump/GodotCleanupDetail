@@ -25,3 +25,5 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_82iff")
+
+[connection signal="begin_rotating" from="." to="PlayerBody" method="_on_player_begin_rotating"]

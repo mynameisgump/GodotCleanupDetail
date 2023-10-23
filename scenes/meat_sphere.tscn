@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://duckbxcxf53ju"]
+[gd_scene load_steps=6 format=3 uid="uid://duckbxcxf53ju"]
 
 [ext_resource type="Script" path="res://scripts/meat_sphere.gd" id="1_v5e0q"]
+[ext_resource type="Texture2D" uid="uid://clvx5yric5b6s" path="res://textures/ConcreteWorn/concrete_floor_worn_001_diff_2k.jpg" id="2_5f7pq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyj8q"]
-albedo_color = Color(1, 0, 0, 1)
+transparency = 1
+albedo_texture = ExtResource("2_5f7pq")
 
 [sub_resource type="SphereMesh" id="SphereMesh_po3ct"]
 material = SubResource("StandardMaterial3D_jyj8q")
@@ -19,6 +21,7 @@ contact_monitor = true
 script = ExtResource("1_v5e0q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 2
 mesh = SubResource("SphereMesh_po3ct")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

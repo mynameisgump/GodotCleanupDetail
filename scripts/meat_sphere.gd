@@ -11,7 +11,7 @@ const GRAB_FORCE = 20;
 var linear_vel = null;
 var entered_blood = false;
 var overlapping = []
-var max_overlapping = 3;
+var max_overlapping = 1;
 
 func _ready():
 	pass
