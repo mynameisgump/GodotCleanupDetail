@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://qcvn70l3rpml"]
+[gd_scene load_steps=10 format=3 uid="uid://qcvn70l3rpml"]
 
 [ext_resource type="PackedScene" uid="uid://lc8w4820q8sp" path="res://scenes/player.tscn" id="1_1s5nh"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_5qlw8"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_2mcj8"]
 [ext_resource type="PackedScene" uid="uid://bx4vhshg57a1j" path="res://scenes/concrete_tile.tscn" id="2_ofuvt"]
+[ext_resource type="PackedScene" uid="uid://cwobtoywgbu6i" path="res://scenes/meat/meat_hand_test.tscn" id="3_ycjfx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glbnt"]
 
@@ -41,7 +42,7 @@ data = PackedVector3Array(-1, -0.6667, 0.6667, -1, -0.6667, -1.3333, -1, 1.3333,
 background_energy_multiplier = 3.1
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_5qlw8")
+script = ExtResource("1_2mcj8")
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -54,6 +55,56 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
 [node name="ConcreteTile3" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile10" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 5.03616, -5)
+
+[node name="ConcreteTile11" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 5.03616, -5)
+
+[node name="ConcreteTile12" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -10, 5.03616, -5)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile31" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 15, 5.03616, 10)
+
+[node name="ConcreteTile32" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 15, 5.03616, 20)
+
+[node name="ConcreteTile33" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 15, 5.03616, 0)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile13" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 5.03616, 25)
+
+[node name="ConcreteTile14" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 5.03616, 25)
+
+[node name="ConcreteTile15" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -10, 5.03616, 25)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile16" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 10)
+
+[node name="ConcreteTile17" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 20)
+
+[node name="ConcreteTile18" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 0)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile19" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 10)
+
+[node name="ConcreteTile20" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 20)
+
+[node name="ConcreteTile21" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 0)
 skeleton = NodePath("..")
 
 [node name="ConcreteTile4" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
@@ -74,6 +125,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
 [node name="ConcreteTile9" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20)
 
+[node name="ConcreteTile22" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="ConcreteTile23" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 0)
+
+[node name="ConcreteTile24" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 10, 0)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile25" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 10, 10)
+
+[node name="ConcreteTile26" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10)
+
+[node name="ConcreteTile27" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 10)
+
+[node name="ConcreteTile28" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 10, 20)
+
+[node name="ConcreteTile29" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 20)
+
+[node name="ConcreteTile30" parent="Map/Testing" instance=ExtResource("2_ofuvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 20)
+
 [node name="Cube" type="MeshInstance3D" parent="Map"]
 transform = Transform3D(-4.37114e-08, 0, 3.30699, 0, 1, 0, -1, 0, -1.44553e-07, 0, 0.67, 0)
 mesh = SubResource("ArrayMesh_m7oqa")
@@ -85,6 +164,9 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_lk0cf")
 
 [node name="Meat" type="Node" parent="."]
+
+[node name="Meat" parent="Meat" instance=ExtResource("3_ycjfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83744, 0)
 
 [node name="BloodStains" type="Node3D" parent="."]
 
