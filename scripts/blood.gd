@@ -6,3 +6,9 @@ func _ready():
 
 func _process(delta):
 	pass
+
+
+func _on_body_entered(body):
+	print("PlayerEntered")
+	queue_free()
+	pass # Replace with function body.
