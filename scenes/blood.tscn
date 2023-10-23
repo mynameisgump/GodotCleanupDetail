@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://qh61lfxl7oi7"]
 
 [ext_resource type="Script" path="res://scripts/blood.gd" id="1_fvi14"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_uv5qv"]
+[ext_resource type="Texture2D" uid="uid://bg7ubfssdu232" path="res://textures/BloodSplat.png" id="2_igdjf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ojjps"]
 size = Vector3(1, 0.311831, 1)
@@ -23,8 +22,8 @@ script = ExtResource("1_fvi14")
 
 [node name="Decal" type="Decal" parent="."]
 transform = Transform3D(1, 4.0415e-15, 0, 4.0415e-15, 1, 0, 0, 0, 1, 0, 0, 0)
-size = Vector3(5, 0.5, 5)
-texture_albedo = SubResource("ImageTexture_uv5qv")
+size = Vector3(2, 0.5, 2)
+texture_albedo = ExtResource("2_igdjf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ojjps")
