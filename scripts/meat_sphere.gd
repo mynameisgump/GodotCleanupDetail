@@ -7,6 +7,8 @@ signal spawn_blood(pos: Vector3,nor: Vector3);
 
 var Blood = preload("res://scenes/blood.tscn");
 
+const GRAB_FORCE = 20;
+var linear_vel = null;
 func _ready():
 	pass
 
@@ -15,8 +17,14 @@ func _process(delta):
 
 func _on_body_entered(body: StaticBody3D):
 	pass 
+	
+func update_velocity(lv): 
+	linear_vel = lv;
 
 func _integrate_forces(state):
+	if linear_vel != null: state.linear_velocity = linear_vel * GRAB_FORCE;
+	
+	# Blood Stain Code
 	var total_contacts = state.get_contact_count();
 	if total_contacts > 0:
 		var colliding_object = state.get_contact_collider_object(0);

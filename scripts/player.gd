@@ -9,7 +9,7 @@ var hvel : Vector3;
 @onready var body: Node3D = $PlayerBody;
 @onready var head: Node3D = $PlayerBody/PlayerHead;
 @onready var camera: Camera3D = $PlayerBody/PlayerHead/Camera3D;
-
+@onready var grabber = $PlayerBody/PlayerHead/Grabber;
 # Export Vars
 @export var GRAVITY = 9.8;
 @export var MAX_SPEED: float = 10.0;
@@ -39,6 +39,43 @@ var z_tilt = 0.0;
 var z_tilt_target = 0.0;
 var z_tilt_value = 0.01;
 var LEAN_SPEED = 5;
+
+var grabbed_item = null;
+var grabbed_item_rel_pos= null;
+
+
+func handle_grabber(): 
+	if grabbed_item == null: 
+		on_empty_grabber() 
+	else: 
+		on_full_grabber()
+
+func on_empty_grabber(): 
+	var collision_object = grabber.get_collider() 
+	if collision_object != null: 
+		on_grabber_collision(collision_object)
+
+func on_full_grabber(): 
+	var expected_translation = head.to_global(grabbed_item_rel_pos) 
+	var linear_vel = expected_translation - grabbed_item.position 
+	grabbed_item.update_velocity(linear_vel) 
+	if Input.is_action_just_released("left_mouse"): 
+		let_go();
+
+func let_go(): 
+	grabbed_item.update_velocity(null) 
+	grabbed_item = null
+
+func on_grabber_collision(collision_object): 
+	if can_be_picked(collision_object): 
+		if Input.is_action_just_pressed("left_mouse"): 
+			grabbed_item_rel_pos = head.to_local(collision_object.position) 
+			grabbed_item = collision_object 
+			grabbed_item.apply_central_impulse(Vector3.UP * 0.1)
+
+func can_be_picked(object): 
+	return object.has_method("update_velocity") 
+
 
 func is_moving():
 	return Input.is_action_pressed("move_left") or \
@@ -91,3 +128,9 @@ func handle_movement(delta : float) -> void:
 func _physics_process(delta):
 	handle_movement(delta)
 	handle_input(delta)
+	handle_grabber();
+
+
+func _on_grab_body_entered(body):
+	print("Grabby")
+	pass # Replace with function body.
