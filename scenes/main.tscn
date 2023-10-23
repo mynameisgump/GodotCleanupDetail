@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://qcvn70l3rpml"]
+[gd_scene load_steps=9 format=3 uid="uid://qcvn70l3rpml"]
 
 [ext_resource type="PackedScene" uid="uid://lc8w4820q8sp" path="res://scenes/player.tscn" id="1_1s5nh"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_5qlw8"]
 [ext_resource type="PackedScene" uid="uid://bx4vhshg57a1j" path="res://scenes/concrete_tile.tscn" id="2_ofuvt"]
-[ext_resource type="PackedScene" uid="uid://daspeqoiacqq2" path="res://scenes/base/meat.tscn" id="3_bjowm"]
-[ext_resource type="PackedScene" uid="uid://dvs4bsiji1nnq" path="res://scenes/test/meat_test.tscn" id="4_ma7us"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glbnt"]
 
@@ -87,12 +85,6 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_lk0cf")
 
 [node name="Meat" type="Node" parent="."]
-
-[node name="Meat2" parent="Meat" instance=ExtResource("3_bjowm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.48058, 0)
-
-[node name="Meat" parent="Meat" instance=ExtResource("4_ma7us")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61166, 2.43294, -0.129132)
 
 [node name="BloodStains" type="Node3D" parent="."]
 
