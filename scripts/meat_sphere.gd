@@ -18,12 +18,20 @@ func _on_body_entered(body: StaticBody3D):
 
 func _integrate_forces(state):
 	var total_contacts = state.get_contact_count();
-	if total_contacts > 0 and blood_timer.is_stopped():
-		var pos = state.get_contact_collider_position(0);
-		var nor = state.get_contact_local_normal(0);
-		spawn_blood.emit(pos,nor)
-		blood_timer.start();
+	if total_contacts > 0:
+		var colliding_object = state.get_contact_collider_object(0);
+		if colliding_object.name != "Player" and blood_timer.is_stopped():
+			print("Contact collider Name:",state.get_contact_collider_object(0).name)
+			var pos = state.get_contact_collider_position(0);
+			var nor = state.get_contact_local_normal(0);
+			spawn_blood.emit(pos,nor);
+			blood_timer.start();
 		
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	pass # Replace with function body.
+
+
+func _on_blood_box_spawn_blood(pos, nor):
+	spawn_blood.emit(pos,nor);
 	pass # Replace with function body.

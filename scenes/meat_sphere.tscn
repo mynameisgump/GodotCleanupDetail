@@ -10,7 +10,7 @@ material = SubResource("StandardMaterial3D_jyj8q")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1j2nr"]
 
-[node name="MeatSphere" type="RigidBody3D"]
+[node name="MeatSphere" type="RigidBody3D" groups=["Meat"]]
 collision_layer = 4
 collision_mask = 3
 max_contacts_reported = 1
@@ -24,7 +24,7 @@ mesh = SubResource("SphereMesh_po3ct")
 shape = SubResource("SphereShape3D_1j2nr")
 
 [node name="BloodTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.1
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

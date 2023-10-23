@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://qcvn70l3rpml"]
+[gd_scene load_steps=10 format=3 uid="uid://qcvn70l3rpml"]
 
 [ext_resource type="PackedScene" uid="uid://lc8w4820q8sp" path="res://scenes/player.tscn" id="1_1s5nh"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_5qlw8"]
@@ -9,6 +9,17 @@ size = Vector3(10, 0.25, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rwtv5"]
 data = PackedVector3Array(-5, 0.125, 5, 5, 0.125, 5, -5, -0.125, 5, 5, 0.125, 5, 5, -0.125, 5, -5, -0.125, 5, 5, 0.125, -5, -5, 0.125, -5, 5, -0.125, -5, -5, 0.125, -5, -5, -0.125, -5, 5, -0.125, -5, 5, 0.125, 5, 5, 0.125, -5, 5, -0.125, 5, 5, 0.125, -5, 5, -0.125, -5, 5, -0.125, 5, -5, 0.125, -5, -5, 0.125, 5, -5, -0.125, -5, -5, 0.125, 5, -5, -0.125, 5, -5, -0.125, -5, 5, 0.125, 5, -5, 0.125, 5, 5, 0.125, -5, -5, 0.125, 5, -5, 0.125, -5, 5, 0.125, -5, -5, -0.125, 5, 5, -0.125, 5, -5, -0.125, -5, 5, -0.125, 5, 5, -0.125, -5, -5, -0.125, -5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03e83"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_f5f3s"]
+material = SubResource("StandardMaterial3D_03e83")
+left_to_right = 1.0
+size = Vector3(4, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3j86t"]
+data = PackedVector3Array(2, 0.5, 0.5, 2, -0.5, 0.5, -2, -0.5, 0.5, 2, 0.5, -0.5, -2, -0.5, -0.5, 2, -0.5, -0.5, 2, 0.5, 0.5, 2, 0.5, -0.5, 2, -0.5, 0.5, 2, 0.5, -0.5, 2, -0.5, -0.5, 2, -0.5, 0.5, 2, 0.5, -0.5, 2, 0.5, 0.5, -2, -0.5, -0.5, 2, 0.5, 0.5, -2, -0.5, 0.5, -2, -0.5, -0.5, -2, -0.5, 0.5, 2, -0.5, 0.5, -2, -0.5, -0.5, 2, -0.5, 0.5, 2, -0.5, -0.5, -2, -0.5, -0.5)
 
 [sub_resource type="Environment" id="Environment_wfo1j"]
 background_energy_multiplier = 3.1
@@ -109,10 +120,19 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Testing/BeginnerFloor9/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rwtv5")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.599503, 0)
+mesh = SubResource("PrismMesh_f5f3s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3j86t")
+
 [node name="Meat" type="Node3D" parent="."]
 
 [node name="MeatSphere" parent="Meat" instance=ExtResource("1_c11of")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50038, 4.50342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09933, 1.50038, 0.036973)
 
 [node name="BloodStains" type="Node3D" parent="."]
 
