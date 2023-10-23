@@ -9,15 +9,16 @@ var Blood = preload("res://scenes/blood.tscn");
 
 const GRAB_FORCE = 20;
 var linear_vel = null;
+var entered_blood = false;
+var overlapping = []
+
 func _ready():
 	pass
 
 func _process(delta):
+	print(overlapping.size())
 	pass
 
-func _on_body_entered(body: StaticBody3D):
-	pass 
-	
 func update_velocity(lv): 
 	linear_vel = lv;
 
@@ -26,19 +27,14 @@ func _integrate_forces(state):
 	
 	# Blood Stain Code
 	var total_contacts = state.get_contact_count();
-	if total_contacts > 0:
+	print(entered_blood)
+	if total_contacts > 0 and overlapping.size() == 0:
 		var colliding_object = state.get_contact_collider_object(0);
 		if colliding_object.name != "Player" and blood_timer.is_stopped():
 			var pos = state.get_contact_collider_position(0);
 			var nor: Vector3 = state.get_contact_local_normal(0);
 			spawn_blood.emit(pos,nor);
 			blood_timer.start();
-		
-
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	pass # Replace with function body.
-
-
-func _on_blood_box_spawn_blood(pos, nor):
-	spawn_blood.emit(pos,nor);
-	pass # Replace with function body.
+			
+func _on_body_entered(body: StaticBody3D):
+	pass 

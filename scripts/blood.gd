@@ -9,5 +9,14 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	queue_free()
-	pass # Replace with function body.
+	if body.is_in_group("Player"):
+		queue_free()
+	if body.is_in_group("Meat"):
+		body.overlapping.append(self);
+
+
+
+func _on_body_exited(body):
+	if body.is_in_group("Meat"):
+		body.overlapping.erase(self);
+

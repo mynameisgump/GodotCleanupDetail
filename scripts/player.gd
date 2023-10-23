@@ -124,13 +124,7 @@ func handle_movement(delta : float) -> void:
 
 	move_and_slide()
 
-
 func _physics_process(delta):
 	handle_movement(delta)
 	handle_input(delta)
 	handle_grabber();
-
-
-func _on_grab_body_entered(body):
-	print("Grabby")
-	pass # Replace with function body.
