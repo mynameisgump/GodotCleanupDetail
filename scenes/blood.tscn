@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://qh61lfxl7oi7"]
+
+[ext_resource type="Script" path="res://scripts/blood.gd" id="1_fvi14"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ojjps"]
+size = Vector3(1, 0.311831, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4fvt"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_erlyu"]
+material = SubResource("StandardMaterial3D_q4fvt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdyxo"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_aln4c"]
+material = SubResource("StandardMaterial3D_jdyxo")
+
+[node name="Blood" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.001, 2.08165e-12)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_fvi14")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ojjps")
+
+[node name="Blood" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("QuadMesh_erlyu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_aln4c")

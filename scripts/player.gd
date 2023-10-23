@@ -27,7 +27,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Speed Parameter
 const SPEED = 7.0;
 # Jump Velocity Parameter
-#const JUMP_VELOCITY = 10;
 const JUMP_VELOCITY = 10;
 # Amount of directional control
 const CONTROL : float = 15.0;
