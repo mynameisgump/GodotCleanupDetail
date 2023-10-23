@@ -12,8 +12,11 @@ func _process(delta):
 
 
 func _on_meat_sphere_spawn_blood(pos, nor):
-	var blood_stain: Blood = blood_scene.instantiate();
+	var blood_stain := blood_scene.instantiate();
 	blood_stains.add_child(blood_stain)
-	blood_stain.set_position(pos)
-	blood_stain.look_at(pos+nor,Vector3.UP)
+	blood_stain.global_transform.origin = pos;
+	blood_stain.basis.y = nor;
+	blood_stain.basis.x = -blood_stain.basis.z.cross(-nor)
+	#blood_stain.global_transform.basis = nor;
+	#blood_stain.look_at(pos+Vector3.UP,Vector3.UP)
 	pass

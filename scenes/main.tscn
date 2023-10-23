@@ -18,7 +18,7 @@ material = SubResource("StandardMaterial3D_03e83")
 left_to_right = 1.0
 size = Vector3(4, 1, 1)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3j86t"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_btfk1"]
 data = PackedVector3Array(2, 0.5, 0.5, 2, -0.5, 0.5, -2, -0.5, 0.5, 2, 0.5, -0.5, -2, -0.5, -0.5, 2, -0.5, -0.5, 2, 0.5, 0.5, 2, 0.5, -0.5, 2, -0.5, 0.5, 2, 0.5, -0.5, 2, -0.5, -0.5, 2, -0.5, 0.5, 2, 0.5, -0.5, 2, 0.5, 0.5, -2, -0.5, -0.5, 2, 0.5, 0.5, -2, -0.5, 0.5, -2, -0.5, -0.5, -2, -0.5, 0.5, 2, -0.5, 0.5, -2, -0.5, -0.5, 2, -0.5, 0.5, 2, -0.5, -0.5, -2, -0.5, -0.5)
 
 [sub_resource type="Environment" id="Environment_wfo1j"]
@@ -127,7 +127,7 @@ mesh = SubResource("PrismMesh_f5f3s")
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_3j86t")
+shape = SubResource("ConcavePolygonShape3D_btfk1")
 
 [node name="Meat" type="Node3D" parent="."]
 

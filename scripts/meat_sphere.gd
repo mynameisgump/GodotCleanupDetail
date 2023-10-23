@@ -21,9 +21,8 @@ func _integrate_forces(state):
 	if total_contacts > 0:
 		var colliding_object = state.get_contact_collider_object(0);
 		if colliding_object.name != "Player" and blood_timer.is_stopped():
-			print("Contact collider Name:",state.get_contact_collider_object(0).name)
 			var pos = state.get_contact_collider_position(0);
-			var nor = state.get_contact_local_normal(0);
+			var nor: Vector3 = state.get_contact_local_normal(0);
 			spawn_blood.emit(pos,nor);
 			blood_timer.start();
 		
