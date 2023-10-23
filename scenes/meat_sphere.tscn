@@ -13,6 +13,7 @@ material = SubResource("StandardMaterial3D_jyj8q")
 [node name="MeatSphere" type="RigidBody3D" groups=["Meat"]]
 collision_layer = 4
 collision_mask = 3
+gravity_scale = -1.0
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_v5e0q")

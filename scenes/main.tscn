@@ -40,6 +40,16 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Testing/BeginnerFloor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rwtv5")
 
+[node name="BeginnerFloor10" type="MeshInstance3D" parent="Map/Testing"]
+transform = Transform3D(0.951094, 0.308901, 0, -0.308901, 0.951094, 0, 0, 0, 1, 0.249005, 7.1109, 0)
+mesh = SubResource("BoxMesh_4ewis")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Testing/BeginnerFloor10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Testing/BeginnerFloor10/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rwtv5")
+
 [node name="BeginnerFloor2" type="MeshInstance3D" parent="Map/Testing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 mesh = SubResource("BoxMesh_4ewis")
@@ -121,7 +131,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_rwtv5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.599503, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02321, 0.599503, 0)
 mesh = SubResource("PrismMesh_f5f3s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map/MeshInstance3D"]
@@ -133,6 +143,7 @@ shape = SubResource("ConcavePolygonShape3D_btfk1")
 
 [node name="MeatSphere" parent="Meat" instance=ExtResource("1_c11of")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09933, 1.50038, 0.036973)
+gravity_scale = 1.0
 
 [node name="BloodStains" type="Node3D" parent="."]
 
