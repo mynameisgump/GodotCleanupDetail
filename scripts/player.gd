@@ -43,6 +43,9 @@ var LEAN_SPEED = 5;
 var grabbed_item = null;
 var grabbed_item_rel_pos= null;
 
+var rotating;
+var prev_mouse_position;
+var next_mouse_position;
 
 func handle_grabber(): 
 	if grabbed_item == null: 
@@ -56,9 +59,10 @@ func on_empty_grabber():
 		on_grabber_collision(collision_object)
 
 func on_full_grabber(): 
-	var expected_translation = head.to_global(grabbed_item_rel_pos) 
-	var linear_vel = expected_translation - grabbed_item.position 
-	grabbed_item.update_velocity(linear_vel) 
+	if not rotating:
+		var expected_translation = head.to_global(grabbed_item_rel_pos) 
+		var linear_vel = expected_translation - grabbed_item.position 
+		grabbed_item.update_velocity(linear_vel) 
 	if Input.is_action_just_released("left_mouse"): 
 		let_go();
 
@@ -95,6 +99,13 @@ func handle_input(delta : float) -> void:
 	if Input.is_action_pressed("move_right"):
 		lean_right = true;
 		z_tilt_target = -z_tilt_value*5;
+	
+	if Input.is_action_just_pressed("rotate"):
+		if grabbed_item != null:
+			rotating = true
+
+	if Input.is_action_just_released("rotate"):
+		rotating = false;
 
 func handle_movement(delta : float) -> void:
 	if not is_on_floor():
