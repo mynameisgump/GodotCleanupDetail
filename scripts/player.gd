@@ -58,6 +58,8 @@ signal begin_rotating(value);
 var equipped = "Sponge";
 
 @onready var sponge_hit = $SpongeHit;
+@onready var sponge_mesh = $PlayerBody/PlayerHead/Sponge;
+
 var is_sponging = false;
 
 func _input(event : InputEvent) -> void:
@@ -134,6 +136,12 @@ func handle_input(delta : float) -> void:
 		rotating = false;
 		begin_rotating.emit(false)
 
+	if Input.is_action_just_pressed("switch_1"):
+		equipped = "Grab"
+	
+	if Input.is_action_just_pressed("switch_2"):
+		equipped = "Sponge"
+
 func handle_movement(delta : float) -> void:
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
@@ -169,13 +177,14 @@ func handle_sponge():
 		if Input.is_action_just_released("left_mouse"):
 			is_sponging = false;
 
+	if is_sponging:
+		var overlapped = sponge_hit.get_overlapping_areas();
+		if overlapped.size() > 0:
+			for area in overlapped:
+				area.queue_free();
+
 func _physics_process(delta):
 	handle_movement(delta)
 	handle_input(delta)
 	handle_grabber();
 	handle_sponge();
-
-func _on_sponge_hit_area_entered(area):
-	if is_sponging:
-		print("IM SPONGGGINNNGGG")
-	pass # Replace with function body.

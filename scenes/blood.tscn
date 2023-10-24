@@ -16,7 +16,7 @@ script = ExtResource("1_fvi14")
 transform = Transform3D(1, 4.0415e-15, 0, 4.0415e-15, 1, 0, 0, 0, 1, 0, 0, 0)
 size = Vector3(1.5, 2, 1.5)
 texture_albedo = ExtResource("2_igdjf")
-cull_mask = 1048573
+cull_mask = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 4.04145e-15, 0, 4.04148e-15, 1, 0, 0, 0, 1, 2.08165e-12, 0.25, 2.08165e-12)
