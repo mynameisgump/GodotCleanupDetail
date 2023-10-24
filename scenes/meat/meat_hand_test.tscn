@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwobtoywgbu6i"]
+[gd_scene load_steps=10 format=3 uid="uid://cwobtoywgbu6i"]
 
 [ext_resource type="PackedScene" uid="uid://daspeqoiacqq2" path="res://scenes/meat/meat.tscn" id="1_7j7jw"]
 [ext_resource type="Texture2D" uid="uid://ba154kht70pdx" path="res://models/hand/untitled_Image_0.png" id="2_d3t5n"]
 [ext_resource type="Texture2D" uid="uid://boph47j387li7" path="res://models/hand/untitled_Image_1.png" id="3_bencq"]
 [ext_resource type="Texture2D" uid="uid://cohfq52b2173i" path="res://models/hand/untitled_Image_2.png" id="4_5ryk1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vohar"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmwbk"]
 resource_name = "Scene_-_Root"
@@ -56,6 +58,8 @@ points = PackedVector3Array(-7.02164, 0.591176, -1.24631, -4.88428, -13.3605, 0.
 
 [node name="Meat" instance=ExtResource("1_7j7jw")]
 mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_vohar")
+linear_damp = 1.0
 
 [node name="MeatMesh" type="MeshInstance3D" parent="." index="0"]
 transform = Transform3D(-0.0424478, 0.0010374, 1.84746e-09, 1.85125e-09, 1.327e-10, 0.0424604, 0.0010374, 0.0424478, -1.7789e-10, 0, 0, 0)

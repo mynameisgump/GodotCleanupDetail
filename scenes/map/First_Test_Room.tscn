@@ -1,0 +1,110 @@
+[gd_scene load_steps=2 format=3 uid="uid://pnolusrgfkac"]
+
+[ext_resource type="PackedScene" uid="uid://bx4vhshg57a1j" path="res://scenes/concrete_tile.tscn" id="1_5v7hh"]
+
+[node name="Testing" type="Node3D"]
+
+[node name="ConcreteTile" parent="." instance=ExtResource("1_5v7hh")]
+
+[node name="ConcreteTile2" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="ConcreteTile3" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile10" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 5.03616, -5)
+
+[node name="ConcreteTile11" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 5.03616, -5)
+
+[node name="ConcreteTile12" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -10, 5.03616, -5)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile31" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 15, 5.03616, 10)
+
+[node name="ConcreteTile32" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 15, 5.03616, 20)
+
+[node name="ConcreteTile33" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 15, 5.03616, 0)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile13" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 5.03616, 25)
+
+[node name="ConcreteTile14" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 5.03616, 25)
+
+[node name="ConcreteTile15" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -10, 5.03616, 25)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile16" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 10)
+
+[node name="ConcreteTile17" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 20)
+
+[node name="ConcreteTile18" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 0)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile19" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 10)
+
+[node name="ConcreteTile20" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 20)
+
+[node name="ConcreteTile21" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -15, 5.03616, 0)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile4" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+
+[node name="ConcreteTile5" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="ConcreteTile6" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+
+[node name="ConcreteTile7" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 20)
+
+[node name="ConcreteTile8" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="ConcreteTile9" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20)
+
+[node name="ConcreteTile22" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="ConcreteTile23" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 0)
+
+[node name="ConcreteTile24" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 10, 0)
+skeleton = NodePath("..")
+
+[node name="ConcreteTile25" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 10, 10)
+
+[node name="ConcreteTile26" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 10)
+
+[node name="ConcreteTile27" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 10)
+
+[node name="ConcreteTile28" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 10, 20)
+
+[node name="ConcreteTile29" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 20)
+
+[node name="ConcreteTile30" parent="." instance=ExtResource("1_5v7hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 20)
