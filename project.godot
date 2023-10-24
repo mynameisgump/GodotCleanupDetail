@@ -55,3 +55,4 @@ rotate={
 3d_physics/layer_3="Meat"
 3d_physics/layer_4="Blood"
 3d_physics/layer_5="Grab"
+3d_physics/layer_6="Tools"

@@ -57,6 +57,9 @@ signal begin_rotating(value);
 #var equipped = "Grab";
 var equipped = "Sponge";
 
+@onready var sponge_hit = $SpongeHit;
+var is_sponging = false;
+
 func _input(event : InputEvent) -> void:
 	
 	if event is InputEventMouseMotion:
@@ -97,6 +100,7 @@ func on_grabber_collision(collision_object):
 				grabbed_item_rel_pos = head.to_local(collision_object.position) 
 				grabbed_item = collision_object 
 				grabbed_item.apply_central_impulse(Vector3.UP * 1)
+
 
 func can_be_picked(object): 
 	return object.has_method("update_velocity") 
@@ -158,7 +162,20 @@ func handle_movement(delta : float) -> void:
 
 	move_and_slide()
 
+func handle_sponge():
+	if equipped == "Sponge":
+		if Input.is_action_just_pressed("left_mouse"):
+			is_sponging = true;
+		if Input.is_action_just_released("left_mouse"):
+			is_sponging = false;
+
 func _physics_process(delta):
 	handle_movement(delta)
 	handle_input(delta)
 	handle_grabber();
+	handle_sponge();
+
+func _on_sponge_hit_area_entered(area):
+	if is_sponging:
+		print("IM SPONGGGINNNGGG")
+	pass # Replace with function body.
