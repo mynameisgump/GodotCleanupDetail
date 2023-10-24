@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://qcvn70l3rpml"]
+[gd_scene load_steps=8 format=3 uid="uid://qcvn70l3rpml"]
 
 [ext_resource type="PackedScene" uid="uid://lc8w4820q8sp" path="res://scenes/player.tscn" id="1_1s5nh"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2mcj8"]
 [ext_resource type="PackedScene" uid="uid://dfecnk1rq1a4c" path="res://scenes/map/warehouse.tscn" id="2_gp7nf"]
 [ext_resource type="PackedScene" uid="uid://cwobtoywgbu6i" path="res://scenes/meat/meat_hand_test.tscn" id="3_ycjfx"]
 
+[sub_resource type="PrismMesh" id="PrismMesh_k03q0"]
+left_to_right = 1.0
+size = Vector3(4, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d0hhf"]
+data = PackedVector3Array(2, 0.5, 0.5, 2, -0.5, 0.5, -2, -0.5, 0.5, 2, 0.5, -0.5, -2, -0.5, -0.5, 2, -0.5, -0.5, 2, 0.5, 0.5, 2, 0.5, -0.5, 2, -0.5, 0.5, 2, 0.5, -0.5, 2, -0.5, -0.5, 2, -0.5, 0.5, 2, 0.5, -0.5, 2, 0.5, 0.5, -2, -0.5, -0.5, 2, 0.5, 0.5, -2, -0.5, 0.5, -2, -0.5, -0.5, -2, -0.5, 0.5, 2, -0.5, 0.5, -2, -0.5, -0.5, 2, -0.5, 0.5, 2, -0.5, -0.5, -2, -0.5, -0.5)
+
 [sub_resource type="Environment" id="Environment_wfo1j"]
-background_energy_multiplier = 3.1
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_2mcj8")
@@ -14,7 +20,16 @@ script = ExtResource("1_2mcj8")
 [node name="Map" type="Node3D" parent="."]
 
 [node name="Warehouse" parent="Map" instance=ExtResource("2_gp7nf")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.02654, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.618607, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0217, 0.613222, 0)
+mesh = SubResource("PrismMesh_k03q0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d0hhf")
 
 [node name="Meat" type="Node" parent="."]
 
@@ -24,7 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.83744, 0)
 [node name="BloodStains" type="Node3D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_1s5nh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501235, 2.72889, 4.72685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501235, 2.72889, 5.47564)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wfo1j")
