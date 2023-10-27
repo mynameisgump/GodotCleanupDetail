@@ -88,7 +88,7 @@ near = 0.06
 
 [node name="Grabber" type="RayCast3D" parent="PlayerBody/PlayerHead"]
 target_position = Vector3(2.08165e-12, 2.08165e-12, -5)
-collision_mask = 4
+collision_mask = 64
 
 [node name="Sponge" type="MeshInstance3D" parent="PlayerBody/PlayerHead"]
 transform = Transform3D(0.062591, 0.0720027, -0.490814, -0.377355, 0.328029, -1.74393e-16, 0.322003, 0.370422, 0.0954045, 0.49, -0.439, -0.656)

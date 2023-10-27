@@ -36,9 +36,6 @@ shape = SubResource("ConcavePolygonShape3D_d0hhf")
 [node name="Skeleton3D" parent="Meat" instance=ExtResource("3_jyts6")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6.05692, 0, -4.28312)
 
-[node name="Skeleton3D2" parent="Meat" instance=ExtResource("3_jyts6")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.54252, 0, -3.55648)
-
 [node name="BloodStains" type="Node3D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_1s5nh")]
@@ -53,5 +50,5 @@ light_energy = 16.0
 omni_range = 29.19
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 0.1
 one_shot = true

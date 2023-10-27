@@ -99,9 +99,10 @@ func on_grabber_collision(collision_object):
 	if can_be_picked(collision_object): 
 		if equipped == "Grab":
 			if Input.is_action_just_pressed("left_mouse"): 
-				grabbed_item_rel_pos = head.to_local(collision_object.position) 
-				grabbed_item = collision_object 
-				grabbed_item.apply_central_impulse(Vector3.UP * 5)
+				print("Grabbing")
+				grabbed_item_rel_pos = head.to_local(collision_object.position);
+				grabbed_item = collision_object;
+				grabbed_item.apply_central_impulse(Vector3.UP * 5);
 
 
 func can_be_picked(object): 

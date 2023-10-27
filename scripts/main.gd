@@ -8,7 +8,8 @@ var blood_scene = preload("res://scenes/blood.tscn");
 var arm_scene = preload("res://scenes/skeleton_3d.tscn");
 
 
-var total_arms = 50;
+var total_arms = 100;
+var total_meat;
 func add_arm():
 	var x = randf_range(-10,10);
 	var z = randf_range(-10,10);
@@ -50,9 +51,9 @@ func _ready():
 #			meat.connect("spawn_blood", self._on_meat_spawn_blood);
 
 func _process(delta):
-	print(meat_node.get_child_count())
+	total_meat = meat_node.get_child_count();
 
-	if spawn_timer.is_stopped():
+	if spawn_timer.is_stopped() and total_meat < total_arms:
 		add_arm();
 		var all_nodes = getallnodes(meat_node);
 		spawn_timer.start();
