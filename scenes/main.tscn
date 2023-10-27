@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://qcvn70l3rpml"]
+[gd_scene load_steps=8 format=3 uid="uid://qcvn70l3rpml"]
 
 [ext_resource type="PackedScene" uid="uid://lc8w4820q8sp" path="res://scenes/player.tscn" id="1_1s5nh"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2mcj8"]
 [ext_resource type="PackedScene" uid="uid://dfecnk1rq1a4c" path="res://scenes/map/warehouse.tscn" id="2_gp7nf"]
+[ext_resource type="PackedScene" uid="uid://bqjesb3wgr188" path="res://scenes/skeleton_3d.tscn" id="3_jyts6"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_k03q0"]
 left_to_right = 1.0
@@ -32,6 +33,12 @@ shape = SubResource("ConcavePolygonShape3D_d0hhf")
 
 [node name="Meat" type="Node" parent="."]
 
+[node name="Skeleton3D" parent="Meat" instance=ExtResource("3_jyts6")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6.05692, 0, -4.28312)
+
+[node name="Skeleton3D2" parent="Meat" instance=ExtResource("3_jyts6")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6.54252, 0, -3.55648)
+
 [node name="BloodStains" type="Node3D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_1s5nh")]
@@ -44,3 +51,7 @@ environment = SubResource("Environment_wfo1j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.78634, 5.35255)
 light_energy = 16.0
 omni_range = 29.19
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
