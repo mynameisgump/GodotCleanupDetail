@@ -4,6 +4,23 @@ extends Node3D
 @onready var blood_stains = $BloodStains;
 
 var blood_scene = preload("res://scenes/blood.tscn");
+var arm_scene = preload("res://scenes/meat/arm.tscn");
+
+var total_arms = 50;
+func add_arm():
+	var x = randf_range(-10,10);
+	var z = randf_range(-10,10);
+	var y = randf_range(5,30);
+	#var impulse_x = randf_range(-1,1)*spawn_impulse_strength;
+	#var impulse_z = randf_range(-1,1)*spawn_impulse_strength;
+
+	var new_arm = arm_scene.instantiate();
+	# new_arm.dissolve_time = current_dissolve_time;
+	meat_node.add_child(new_arm);
+	new_arm.set_position(Vector3(x,y,z));
+	print("Postions:", new_arm.position)
+	# new_arm.apply_impulse(Vector3(impulse_x,0,impulse_z))
+
 
 func getallnodes(node):
 	var signals = node.get_signal_list();
@@ -13,16 +30,16 @@ func getallnodes(node):
 			
 	for N in node.get_children():
 		if N.get_child_count() > 0:
-			# print("["+N.get_name()+"]")
 			getallnodes(N)
 		else:
-			# Do something
-			#print("- "+N.get_name())
-			#print(N.has_user_signal("spawn_blood"));
 			pass
 
 
 func _ready():
+	for n in 10:
+		add_arm();
+
+	
 	var all_nodes = getallnodes(meat_node);
 	
 #	if meat_node.get_child_count() > 0:
@@ -30,6 +47,7 @@ func _ready():
 #			meat.connect("spawn_blood", self._on_meat_spawn_blood);
 
 func _process(delta):
+	print(meat_node.get_child_count())
 	pass
 
 func _on_meat_spawn_blood(pos,nor):
