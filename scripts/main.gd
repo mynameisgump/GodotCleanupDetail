@@ -5,10 +5,29 @@ extends Node3D
 
 var blood_scene = preload("res://scenes/blood.tscn");
 
+func getallnodes(node):
+	var signals = node.get_signal_list();
+	for signal_entry in signals:
+		if signal_entry["name"] == "spawn_blood":
+			node.connect("spawn_blood", self._on_meat_spawn_blood);
+			
+	for N in node.get_children():
+		if N.get_child_count() > 0:
+			# print("["+N.get_name()+"]")
+			getallnodes(N)
+		else:
+			# Do something
+			#print("- "+N.get_name())
+			#print(N.has_user_signal("spawn_blood"));
+			pass
+
+
 func _ready():
-	if meat_node.get_child_count() > 0:
-		for meat in meat_node.get_children():
-			meat.connect("spawn_blood", self._on_meat_spawn_blood);
+	var all_nodes = getallnodes(meat_node);
+	
+#	if meat_node.get_child_count() > 0:
+#		for meat in meat_node.get_children():
+#			meat.connect("spawn_blood", self._on_meat_spawn_blood);
 
 func _process(delta):
 	pass

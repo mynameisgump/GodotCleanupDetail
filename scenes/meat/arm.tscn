@@ -45,7 +45,7 @@ height = 0.76532
 radius = 0.162
 height = 0.813402
 
-[node name="Pain" type="Node3D"]
+[node name="Arm" type="Node3D"]
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -77,12 +77,12 @@ mesh = SubResource("ArrayMesh_l5tg7")
 skin = SubResource("Skin_xtvvj")
 
 [node name="Physical Bone Forearm" type="PhysicalBone3D" parent="Skeleton3D"]
-transform = Transform3D(0.998587, 0.001046, -0.0531387, -0.0468654, -0.478664, -0.876678, -0.0250511, 0.877775, -0.478134, -0.0276668, 0.185323, 0.138609)
+transform = Transform3D(0.998587, 0.00191786, -0.0531387, -0.0468654, -0.4786, -0.876678, -0.0250511, 0.877696, -0.478134, -0.0276668, 0.185323, 0.138609)
 collision_layer = 4
 collision_mask = 3
 joint_type = 5
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57748e-10, 3.68537e-08, 0.38266)
-body_offset = Transform3D(1, 0.00148807, 1.76083e-08, 3.16107e-08, 0.000114971, -1, 7.25777e-10, 0.999804, 4.97384e-08, -7.45058e-09, 0.38266, -5.58794e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.25691e-10, 3.68574e-08, 0.38266)
+body_offset = Transform3D(1, 0.00235768, 1.76083e-08, 3.16107e-08, 0.000179787, -1, 7.25777e-10, 0.999703, 4.97384e-08, -7.45058e-09, 0.38266, -5.58794e-08)
 bone_name = "Forearm"
 joint_constraints/x/linear_limit_enabled = true
 joint_constraints/x/linear_limit_upper = 0.0
@@ -153,7 +153,7 @@ script = ExtResource("2_uga7n")
 transform = Transform3D(1, 1.81268e-09, -4.28436e-06, 6.84016e-10, 1.14269e-08, 1, -3.81573e-09, -1, 2.9771e-07, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_u8fl2")
 
-[node name="Meat" type="RigidBody3D" parent="Skeleton3D/Physical Bone Forearm"]
+[node name="Meat" type="RigidBody3D" parent="Skeleton3D/Physical Bone Forearm" groups=["Meat"]]
 collision_layer = 4
 collision_mask = 3
 max_contacts_reported = 1
@@ -180,5 +180,22 @@ body_offset = Transform3D(1, 1.46478e-11, -3.09084e-09, -3.42836e-09, -6.41778e-
 bone_name = "Arm"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/Physical Bone Arm"]
+transform = Transform3D(1, -1.68734e-10, 0, 0, 0, 1, 1.68734e-10, -1, 0, 0.000375457, 0, 0.0620851)
+shape = SubResource("CapsuleShape3D_64crh")
+
+[node name="Meat" type="RigidBody3D" parent="Skeleton3D/Physical Bone Arm" groups=["Meat"]]
+collision_layer = 4
+collision_mask = 3
+max_contacts_reported = 1
+contact_monitor = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("3_agm8j")
+
+[node name="BloodTimer" type="Timer" parent="Skeleton3D/Physical Bone Arm/Meat"]
+wait_time = 0.1
+one_shot = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/Physical Bone Arm/Meat"]
 transform = Transform3D(1, -1.68734e-10, 0, 0, 0, 1, 1.68734e-10, -1, 0, 0.000375457, 0, 0.0620851)
 shape = SubResource("CapsuleShape3D_64crh")
