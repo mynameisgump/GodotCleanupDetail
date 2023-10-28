@@ -40,6 +40,15 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6.056
 
 [node name="Player" parent="." instance=ExtResource("1_1s5nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.501235, 2.72889, 5.47564)
+GRAVITY = 9.8
+MAX_SPEED = 10.0
+JUMP_SPEED = 500
+ACCEL = 4.5
+MAX_ACCEL = 150.0
+DEACCEL = 0.86
+MAX_SLOPE_ANGLE = 40
+default_fov = 75
+vac_max = 5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wfo1j")

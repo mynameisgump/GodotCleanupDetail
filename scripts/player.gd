@@ -56,9 +56,7 @@ signal begin_rotating(value);
 
 var equipped = "Sponge";
 
-@onready var sponge_hit = $PlayerBody/PlayerHead/SpongeHit;
-@onready var sponge_collision = $PlayerBody/PlayerHead/SpongeHit/SpongeCollision
-@onready var sponge_mesh = $PlayerBody/PlayerHead/SpongeMesh;
+@onready var sponge = $PlayerBody/PlayerHead/Sponge;
 @onready var sponge_animation = $AnimationPlayer
 
 func _input(event : InputEvent) -> void:
@@ -175,11 +173,13 @@ func handle_sponge():
 		if Input.is_action_just_pressed("left_mouse"):
 			sponge_animation.play("sponge_attack");
 
-	if not sponge_collision.disabled:
-		var overlapped = sponge_hit.get_overlapping_areas();
-		if overlapped.size() > 0:
-			for area in overlapped:
-				area.queue_free();
+	if sponge.current_blood == 3:
+		pass
+#	if not sponge_collision.disabled:
+#		var overlapped = sponge_hit.get_overlapping_areas();
+#		if overlapped.size() > 0:
+#			for area in overlapped:
+#				area.queue_free();
 
 func _physics_process(delta):
 	handle_movement(delta)

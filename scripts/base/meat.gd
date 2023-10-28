@@ -23,11 +23,9 @@ func _integrate_forces(state):
 	# Blood Stain Code
 	var current_velocity = get_linear_velocity();
 	var velocity_magnitude = current_velocity.length();
-	print(velocity_magnitude)
+
 	var total_contacts = state.get_contact_count();
 
-	
-	
 	if total_contacts > 0 \
 	and overlapping.size() <= max_overlapping \
 	and velocity_magnitude > velocity_threshold:
@@ -38,7 +36,3 @@ func _integrate_forces(state):
 			var nor: Vector3 = state.get_contact_local_normal(0);
 			spawn_blood.emit(pos,nor);
 			blood_timer.start();
-
-
-func _on_body_entered(body):
-	pass 

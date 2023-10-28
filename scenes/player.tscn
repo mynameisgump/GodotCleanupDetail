@@ -1,16 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://lc8w4820q8sp"]
+[gd_scene load_steps=18 format=3 uid="uid://lc8w4820q8sp"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_aij6c"]
 [ext_resource type="Script" path="res://scripts/player_body.gd" id="2_fj7rr"]
+[ext_resource type="Script" path="res://scripts/tools/Sponge.gd" id="3_7pjug"]
 [ext_resource type="Texture2D" uid="uid://cv61baff0jjeb" path="res://textures/Sponge001_1K-JPG/Sponge001_1K-JPG_Color.jpg" id="3_mlki3"]
 [ext_resource type="Texture2D" uid="uid://cwk82nkvlpa5x" path="res://textures/Sponge001_1K-JPG/Sponge001_1K-JPG_AmbientOcclusion.jpg" id="4_iv157"]
 [ext_resource type="Texture2D" uid="uid://scyvo85itiw7" path="res://textures/Sponge001_1K-JPG/Sponge001_1K-JPG_NormalGL.jpg" id="5_1ots8"]
 [ext_resource type="Texture2D" uid="uid://derlxowop5t7n" path="res://textures/Sponge001_1K-JPG/Sponge001_1K-JPG_Roughness.jpg" id="6_jyaxo"]
 [ext_resource type="Texture2D" uid="uid://bp6qn1akvccgf" path="res://textures/Sponge001_1K-JPG/Sponge001_1K-JPG_Scattering.jpg" id="7_5tutl"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ohq73"]
-radius = 0.1
-height = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7cses"]
 resource_name = "Material"
@@ -62,6 +59,10 @@ ao_texture_channel = 4
 subsurf_scatter_enabled = true
 subsurf_scatter_texture = ExtResource("7_5tutl")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4r7m"]
+radius = 0.1
+height = 0.28
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_82iff"]
 
 [sub_resource type="Animation" id="Animation_efitf"]
@@ -71,38 +72,38 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerBody/PlayerHead/SpongeMesh:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath("PlayerBody/PlayerHead/Sponge/SpongePhysicalCollision:disabled")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.49, -0.439, -0.656), Vector3(0.0951343, -0.286093, -1.51781), Vector3(0.49, -0.439, -0.656)]
+"times": PackedFloat32Array(0, 0.07, 0.13, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerBody/PlayerHead/SpongeMesh:rotation")
-tracks/1/interp = 2
+tracks/1/path = NodePath("PlayerBody/PlayerHead/Sponge:position")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(2.61238e-10, -1.37881, -0.855211), Vector3(-0.115684, -1.33391, -0.214439), Vector3(2.61238e-10, -1.37881, -0.855211)]
+"values": [Vector3(0.49, -0.439, -0.656), Vector3(0.0951343, -0.286093, -1.51781), Vector3(0.49, -0.439, -0.656)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerBody/PlayerHead/SpongeHit/SpongeCollision:disabled")
+tracks/2/path = NodePath("PlayerBody/PlayerHead/Sponge:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.07, 0.13, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, true]
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(2.61238e-10, -1.37881, -0.855211), Vector3(-0.115684, -1.33391, -0.214439), Vector3(2.61238e-10, -1.37881, -0.855211)]
 }
 
 [sub_resource type="Animation" id="Animation_0hyf3"]
@@ -110,38 +111,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerBody/PlayerHead/SpongeMesh:position")
+tracks/0/path = NodePath("PlayerBody/PlayerHead/Sponge/SpongePhysicalCollision:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.49, -0.439, -0.656)]
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerBody/PlayerHead/SpongeMesh:rotation")
+tracks/1/path = NodePath("PlayerBody/PlayerHead/Sponge:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(2.61238e-10, -1.37881, -0.855211)]
+"values": [Vector3(0.49, -0.439, -0.656)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerBody/PlayerHead/SpongeHit/SpongeCollision:disabled")
+tracks/2/path = NodePath("PlayerBody/PlayerHead/Sponge:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector3(2.61238e-10, -1.37881, -0.855211)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrdlk"]
@@ -161,26 +162,6 @@ script = ExtResource("2_fj7rr")
 [node name="PlayerHead" type="Node3D" parent="PlayerBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
 
-[node name="Sponge" type="CharacterBody3D" parent="PlayerBody/PlayerHead"]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, -0.178378, -1.19557)
-collision_layer = 32
-collision_mask = 0
-
-[node name="SpongePhysicalCollision" type="CollisionShape3D" parent="PlayerBody/PlayerHead/Sponge"]
-transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_ohq73")
-disabled = true
-
-[node name="SpongeHit" type="Area3D" parent="PlayerBody/PlayerHead"]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -2.08165e-12, -0.19503, -1.20317)
-collision_layer = 16
-collision_mask = 8
-
-[node name="SpongeCollision" type="CollisionShape3D" parent="PlayerBody/PlayerHead/SpongeHit"]
-transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_ohq73")
-disabled = true
-
 [node name="Camera3D" type="Camera3D" parent="PlayerBody/PlayerHead"]
 current = true
 fov = 70.0
@@ -190,12 +171,23 @@ near = 0.06
 target_position = Vector3(2.08165e-12, 2.08165e-12, -5)
 collision_mask = 64
 
-[node name="SpongeMesh" type="MeshInstance3D" parent="PlayerBody/PlayerHead"]
-transform = Transform3D(0.062591, 0.0720026, -0.490814, -0.377355, 0.32803, -1.30619e-10, 0.322003, 0.370422, 0.0954045, 0.49, -0.439, -0.656)
+[node name="Sponge" type="CharacterBody3D" parent="PlayerBody/PlayerHead" groups=["Sponge"]]
+transform = Transform3D(0.312955, 0.360013, -2.45407, -1.88677, 1.64015, -6.53095e-10, 1.61001, 1.85211, 0.477022, 0.49, -0.439, -0.656)
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_7pjug")
+
+[node name="SpongeMesh" type="MeshInstance3D" parent="PlayerBody/PlayerHead/Sponge"]
+transform = Transform3D(0.2, -4.1798e-09, -2.51065e-09, 8.38277e-09, 0.2, 7.58612e-09, 4.07339e-09, 4.83181e-10, 0.2, 0, 0, 0)
 layers = 2
 mesh = SubResource("ArrayMesh_ymjhf")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tko82")
+
+[node name="SpongePhysicalCollision" type="CollisionShape3D" parent="PlayerBody/PlayerHead/Sponge"]
+transform = Transform3D(0.103668, -0.961282, -0.255325, 0.994113, 0.108282, -0.00404148, 0.0315321, -0.253403, 0.966847, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_i4r7m")
+disabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -207,4 +199,3 @@ libraries = {
 }
 
 [connection signal="begin_rotating" from="." to="PlayerBody" method="_on_player_begin_rotating"]
-[connection signal="area_entered" from="PlayerBody/PlayerHead/SpongeHit" to="." method="_on_sponge_hit_area_entered"]
