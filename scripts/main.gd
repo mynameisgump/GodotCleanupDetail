@@ -24,7 +24,8 @@ func getallnodes(node):
 	var signals = node.get_signal_list();
 	for signal_entry in signals:
 		if signal_entry["name"] == "spawn_blood":
-			node.connect("spawn_blood", self._on_meat_spawn_blood);
+			if node.get_signal_connection_list("spawn_blood").size() == 0:
+				node.connect("spawn_blood", self._on_meat_spawn_blood);
 			
 	for N in node.get_children():
 		if N.get_child_count() > 0:

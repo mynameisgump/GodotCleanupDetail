@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://488lfsbxxuku"]
-
-[ext_resource type="PackedScene" uid="uid://daspeqoiacqq2" path="res://scenes/meat/meat.tscn" id="1_fuun0"]
-
-[node name="MeatHand" instance=ExtResource("1_fuun0")]

@@ -71,7 +71,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerBody/PlayerHead/Sponge:position")
+tracks/0/path = NodePath("PlayerBody/PlayerHead/SpongeMesh:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -83,7 +83,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerBody/PlayerHead/Sponge:rotation")
+tracks/1/path = NodePath("PlayerBody/PlayerHead/SpongeMesh:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -110,7 +110,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerBody/PlayerHead/Sponge:position")
+tracks/0/path = NodePath("PlayerBody/PlayerHead/SpongeMesh:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -122,7 +122,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerBody/PlayerHead/Sponge:rotation")
+tracks/1/path = NodePath("PlayerBody/PlayerHead/SpongeMesh:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -161,14 +161,15 @@ script = ExtResource("2_fj7rr")
 [node name="PlayerHead" type="Node3D" parent="PlayerBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="PlayerBody/PlayerHead"]
+[node name="Sponge" type="CharacterBody3D" parent="PlayerBody/PlayerHead"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, -0.178378, -1.19557)
 collision_layer = 32
 collision_mask = 0
 
-[node name="SpongeCollision" type="CollisionShape3D" parent="PlayerBody/PlayerHead/CharacterBody3D"]
+[node name="SpongePhysicalCollision" type="CollisionShape3D" parent="PlayerBody/PlayerHead/Sponge"]
 transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_ohq73")
+disabled = true
 
 [node name="SpongeHit" type="Area3D" parent="PlayerBody/PlayerHead"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -2.08165e-12, -0.19503, -1.20317)
@@ -189,7 +190,7 @@ near = 0.06
 target_position = Vector3(2.08165e-12, 2.08165e-12, -5)
 collision_mask = 64
 
-[node name="Sponge" type="MeshInstance3D" parent="PlayerBody/PlayerHead"]
+[node name="SpongeMesh" type="MeshInstance3D" parent="PlayerBody/PlayerHead"]
 transform = Transform3D(0.062591, 0.0720026, -0.490814, -0.377355, 0.32803, -1.30619e-10, 0.322003, 0.370422, 0.0954045, 0.49, -0.439, -0.656)
 layers = 2
 mesh = SubResource("ArrayMesh_ymjhf")

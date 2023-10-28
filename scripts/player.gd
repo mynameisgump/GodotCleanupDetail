@@ -54,15 +54,12 @@ var y_rotation;
 
 signal begin_rotating(value);
 
-#var equipped = "Grab";
 var equipped = "Sponge";
 
 @onready var sponge_hit = $PlayerBody/PlayerHead/SpongeHit;
 @onready var sponge_collision = $PlayerBody/PlayerHead/SpongeHit/SpongeCollision
-@onready var sponge_mesh = $PlayerBody/PlayerHead/Sponge;
+@onready var sponge_mesh = $PlayerBody/PlayerHead/SpongeMesh;
 @onready var sponge_animation = $AnimationPlayer
-
-var is_sponging = false;
 
 func _input(event : InputEvent) -> void:
 	
@@ -177,9 +174,6 @@ func handle_sponge():
 	if equipped == "Sponge":
 		if Input.is_action_just_pressed("left_mouse"):
 			sponge_animation.play("sponge_attack");
-			#is_sponging = true;
-		#if Input.is_action_just_released("left_mouse"):
-			#is_sponging = false;
 
 	if not sponge_collision.disabled:
 		var overlapped = sponge_hit.get_overlapping_areas();
