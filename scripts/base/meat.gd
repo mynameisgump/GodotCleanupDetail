@@ -13,6 +13,7 @@ var entered_blood = false;
 var overlapping = []
 var max_overlapping = 1;
 
+var velocity_threshold = 1;
 func update_velocity(lv): 
 	linear_vel = lv;
 
@@ -20,9 +21,16 @@ func _integrate_forces(state):
 	if linear_vel != null: state.linear_velocity = linear_vel * GRAB_FORCE;
 
 	# Blood Stain Code
+	var current_velocity = get_linear_velocity();
+	var velocity_magnitude = current_velocity.length();
+	print(velocity_magnitude)
 	var total_contacts = state.get_contact_count();
-	#print(total_contacts)
-	if total_contacts > 0 and overlapping.size() <= max_overlapping:
+
+	
+	
+	if total_contacts > 0 \
+	and overlapping.size() <= max_overlapping \
+	and velocity_magnitude > velocity_threshold:
 		var colliding_object = state.get_contact_collider_object(0);
 
 		if colliding_object.name != "Player" and blood_timer.is_stopped():
@@ -33,4 +41,4 @@ func _integrate_forces(state):
 
 
 func _on_body_entered(body):
-	pass # Replace with function body.
+	pass 

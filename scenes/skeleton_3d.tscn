@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqjesb3wgr188"]
+[gd_scene load_steps=9 format=3 uid="uid://bqjesb3wgr188"]
 
 [ext_resource type="Script" path="res://scripts/arm_test.gd" id="1_n8rty"]
 [ext_resource type="Script" path="res://scripts/test/PhysicalBoneForearm.gd" id="2_f5dh5"]
@@ -49,8 +49,6 @@ resource_local_to_scene = true
 radius = 0.162
 height = 0.813402
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_u25on"]
-
 [node name="Skeleton3D" type="Skeleton3D"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 bones/0/name = "Arm"
@@ -77,16 +75,17 @@ bones/2/scale = Vector3(1, 1, 1)
 script = ExtResource("1_n8rty")
 
 [node name="Armp" type="MeshInstance3D" parent="."]
+layers = 2
 mesh = SubResource("ArrayMesh_ahp1c")
 skin = SubResource("Skin_xtvvj")
 
 [node name="Physical Bone Forearm" type="PhysicalBone3D" parent="."]
-transform = Transform3D(0.998587, 0.00200193, -0.0531387, -0.0468654, -0.478594, -0.876678, -0.0250511, 0.877688, -0.478134, -0.0276668, 0.185323, 0.138609)
+transform = Transform3D(0.998587, 0.00219004, -0.0531387, -0.0468654, -0.47858, -0.876678, -0.0250511, 0.877671, -0.478134, -0.0276668, 0.185323, 0.138609)
 collision_layer = 64
-collision_mask = 3
+collision_mask = 99
 joint_type = 5
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22599e-10, 3.68577e-08, 0.38266)
-body_offset = Transform3D(1, 0.00244154, 1.76083e-08, 3.16107e-08, 0.000185799, -1, 7.25777e-10, 0.999693, 4.97384e-08, -7.45058e-09, 0.38266, -5.58794e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.15682e-10, 3.68585e-08, 0.38266)
+body_offset = Transform3D(1, 0.00262916, 1.76083e-08, 3.16107e-08, 0.00019973, -1, 7.25777e-10, 0.999672, 4.97384e-08, -7.45058e-09, 0.38266, -5.58794e-08)
 bone_name = "Forearm"
 joint_constraints/x/linear_limit_enabled = true
 joint_constraints/x/linear_limit_upper = 0.0
@@ -177,7 +176,7 @@ one_shot = true
 [node name="Physical Bone Arm" type="PhysicalBone3D" parent="."]
 transform = Transform3D(0.999982, 4.5088e-08, -0.00604742, -0.00604742, -2.67027e-08, -0.999982, -4.5234e-08, 1, -2.64284e-08, -0.0501717, -0.509118, -0.0443541)
 collision_layer = 64
-collision_mask = 3
+collision_mask = 99
 joint_offset = Transform3D(1, 0, -1.68734e-10, 0, 1, 0, 1.68734e-10, 0, 1, 1.10954e-09, -3.49532e-09, 0.358977)
 joint_rotation = Vector3(0, -1.68734e-10, 0)
 body_offset = Transform3D(1, 1.46478e-11, -3.09084e-09, -3.42836e-09, -6.41778e-10, -1, 0, 1, -6.40625e-10, 0, 0.358977, 3.72529e-09)
@@ -204,8 +203,3 @@ one_shot = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Physical Bone Arm/Meat"]
 transform = Transform3D(1, -1.68734e-10, 0, 0, 0, 1, 1.68734e-10, -1, 0, 0.000375457, 0, 0.0620851)
 shape = SubResource("CapsuleShape3D_64crh")
-
-[node name="_MeshInstance3D_117169" type="MeshInstance3D" parent="."]
-cast_shadow = 0
-mesh = SubResource("ImmediateMesh_u25on")
-skeleton = NodePath("")

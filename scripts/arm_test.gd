@@ -13,7 +13,7 @@ var overlapping = []
 var max_overlapping = 1;
 
 func _on_body_entered(body):
-	pass # Replace with function body.
+	pass 
 
 func _ready():
 	physical_bones_start_simulation()

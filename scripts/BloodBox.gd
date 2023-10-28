@@ -17,7 +17,6 @@ func _process(delta):
 
 func _integrate_forces(state):
 	var total_contacts = state.get_contact_count();
-	print("BloodBoxContacts")
 	if total_contacts > 0 and blood_timer.is_stopped():
 		var pos = state.get_contact_collider_position(0);
 		var nor = state.get_contact_local_normal(0);

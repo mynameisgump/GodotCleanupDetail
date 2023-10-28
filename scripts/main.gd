@@ -8,22 +8,16 @@ var blood_scene = preload("res://scenes/blood.tscn");
 var arm_scene = preload("res://scenes/skeleton_3d.tscn");
 
 
-var total_arms = 100;
+var total_arms = 5;
 var total_meat;
 func add_arm():
 	var x = randf_range(-10,10);
 	var z = randf_range(-10,10);
 	var y = randf_range(5,6);
-	#var impulse_x = randf_range(-1,1)*spawn_impulse_strength;
-	#var impulse_z = randf_range(-1,1)*spawn_impulse_strength;
-
 	var new_arm = arm_scene.instantiate();
-	# new_arm.dissolve_time = current_dissolve_time;
+
 	new_arm.position = Vector3(x,y,z);
 	meat_node.add_child(new_arm);
-
-	print(new_arm.position)
-	# new_arm.apply_impulse(Vector3(impulse_x,0,impulse_z))
 
 
 func getallnodes(node):
@@ -40,16 +34,8 @@ func getallnodes(node):
 
 
 func _ready():
-#	for n in 10:
-#		add_arm();
-
-	
 	var all_nodes = getallnodes(meat_node);
 	
-#	if meat_node.get_child_count() > 0:
-#		for meat in meat_node.get_children():
-#			meat.connect("spawn_blood", self._on_meat_spawn_blood);
-
 func _process(delta):
 	total_meat = meat_node.get_child_count();
 
@@ -60,7 +46,6 @@ func _process(delta):
 	pass
 
 func _on_meat_spawn_blood(pos,nor):
-	print("Spawning Blood")
 	var blood_stain := blood_scene.instantiate();
 	var random_y_rotation = randf_range(0,360);
 	blood_stains.add_child(blood_stain)
