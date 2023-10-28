@@ -3,6 +3,7 @@ extends Node3D
 @onready var meat_node: Node = $Meat;
 @onready var spawn_timer = $Timer;
 @onready var blood_stains = $BloodStains;
+@onready var player_node = $Player;
 
 var blood_scene = preload("res://scenes/blood.tscn");
 var arm_scene = preload("res://scenes/skeleton_3d.tscn");
@@ -22,6 +23,7 @@ func add_arm():
 
 func getallnodes(node):
 	var signals = node.get_signal_list();
+	print(node.name == "Sponge")
 	for signal_entry in signals:
 		if signal_entry["name"] == "spawn_blood":
 			if node.get_signal_connection_list("spawn_blood").size() == 0:
@@ -36,6 +38,7 @@ func getallnodes(node):
 
 func _ready():
 	var all_nodes = getallnodes(meat_node);
+	getallnodes(player_node);
 	
 func _process(delta):
 	total_meat = meat_node.get_child_count();
@@ -47,6 +50,7 @@ func _process(delta):
 	pass
 
 func _on_meat_spawn_blood(pos,nor):
+	print("Spawn_blood");
 	var blood_stain := blood_scene.instantiate();
 	var random_y_rotation = randf_range(0,360);
 	blood_stains.add_child(blood_stain)

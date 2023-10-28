@@ -8,12 +8,15 @@ func _process(delta):
 	pass
 
 func _on_body_entered(body):
+	
 	if body.is_in_group("Player"):
 		pass
+		
 	if body.is_in_group("Sponge"):
 		if body.current_blood < body.max_blood:
 			body.soak();
 			queue_free();
+			
 	if body.is_in_group("Meat"):
 		body.overlapping.append(self);
 

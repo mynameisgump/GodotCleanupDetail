@@ -63,8 +63,6 @@ subsurf_scatter_texture = ExtResource("7_5tutl")
 radius = 0.1
 height = 0.28
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_82iff"]
-
 [sub_resource type="Animation" id="Animation_efitf"]
 resource_name = "sponge_attack"
 length = 0.2
@@ -105,6 +103,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(2.61238e-10, -1.37881, -0.855211), Vector3(-0.115684, -1.33391, -0.214439), Vector3(2.61238e-10, -1.37881, -0.855211)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerBody/PlayerHead/Sponge/SpongeCast:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
 
 [sub_resource type="Animation" id="Animation_0hyf3"]
 length = 0.001
@@ -144,12 +154,26 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(2.61238e-10, -1.37881, -0.855211)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerBody/PlayerHead/Sponge/SpongeCast:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrdlk"]
 _data = {
 "RESET": SubResource("Animation_0hyf3"),
 "sponge_attack": SubResource("Animation_efitf")
 }
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_82iff"]
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -188,13 +212,19 @@ transform = Transform3D(0.103668, -0.961282, -0.255325, 0.994113, 0.108282, -0.0
 shape = SubResource("CapsuleShape3D_i4r7m")
 disabled = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_82iff")
+[node name="SpongeCast" type="RayCast3D" parent="PlayerBody/PlayerHead/Sponge"]
+transform = Transform3D(-0.0149055, 0.998593, -0.0508892, -0.929125, -0.0326386, -0.368323, -0.369465, 0.0417923, 0.928304, 0.298166, -0.00265874, 0.0376336)
+enabled = false
+target_position = Vector3(2.08165e-12, -0.75, 2.08165e-12)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerBody/PlayerHead/Sponge"]
+root_node = NodePath("../../../..")
 libraries = {
 "": SubResource("AnimationLibrary_qrdlk")
 }
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_82iff")
 
 [connection signal="begin_rotating" from="." to="PlayerBody" method="_on_player_begin_rotating"]
