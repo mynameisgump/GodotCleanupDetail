@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcpr4k6niwbea"]
+[gd_scene load_steps=11 format=3 uid="uid://bcpr4k6niwbea"]
 
 [ext_resource type="Material" uid="uid://b3l4o21ht65q7" path="res://materials/water.tres" id="1_bjyl0"]
+[ext_resource type="Script" path="res://scenes/objects/water_bucket.gd" id="1_kghlf"]
 [ext_resource type="Texture2D" uid="uid://b1t5w364wgpke" path="res://models/bucket/bucket_good_Image_0.png" id="2_a36kv"]
 [ext_resource type="Texture2D" uid="uid://c68cb1vrtpmmd" path="res://models/bucket/bucket_good_Image_1.png" id="3_mumvu"]
 [ext_resource type="Texture2D" uid="uid://cukao20mmdact" path="res://models/bucket/bucket_good_Image_2.png" id="4_d4lws"]
@@ -56,15 +57,27 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0lr1e")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tpm4p"]
+height = 0.830629
+radius = 0.354591
+
 [node name="WaterBucket" type="RigidBody3D"]
+collision_layer = 64
+collision_mask = 67
+mass = 5.0
 freeze = true
 freeze_mode = 1
+script = ExtResource("1_kghlf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000759542, 0, 0)
+[node name="WaterMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.000759542, 0, 0)
 mesh = SubResource("CylinderMesh_g6u0a")
 
-[node name="bucket_lambert1_0" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+[node name="BucketMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.013, 0, 0, 0, 0.013, 0, 0, 0, 0.013, 0, 0, 0)
 mesh = SubResource("ArrayMesh_qk0qn")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010199, 0)
+shape = SubResource("CylinderShape3D_tpm4p")

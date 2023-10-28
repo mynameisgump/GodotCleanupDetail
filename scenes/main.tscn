@@ -55,4 +55,5 @@ wait_time = 0.1
 one_shot = true
 
 [node name="WaterBucket" parent="." instance=ExtResource("5_uvwdt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30175, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.204603, 0)
+freeze = false
