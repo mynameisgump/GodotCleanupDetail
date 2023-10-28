@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://qcvn70l3rpml"]
+[gd_scene load_steps=9 format=3 uid="uid://qcvn70l3rpml"]
 
 [ext_resource type="PackedScene" uid="uid://lc8w4820q8sp" path="res://scenes/player.tscn" id="1_1s5nh"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2mcj8"]
 [ext_resource type="PackedScene" uid="uid://dfecnk1rq1a4c" path="res://scenes/map/warehouse.tscn" id="2_gp7nf"]
 [ext_resource type="PackedScene" uid="uid://bqjesb3wgr188" path="res://scenes/skeleton_3d.tscn" id="3_jyts6"]
+[ext_resource type="PackedScene" uid="uid://bcpr4k6niwbea" path="res://scenes/objects/water_bucket.tscn" id="5_uvwdt"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_k03q0"]
 left_to_right = 1.0
@@ -52,3 +53,6 @@ omni_range = 29.19
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="WaterBucket" parent="." instance=ExtResource("5_uvwdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0125054, 0)

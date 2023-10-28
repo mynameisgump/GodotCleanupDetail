@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcpr4k6niwbea"]
+
+[ext_resource type="Shader" path="res://shaders/water_bucket.gdshader" id="1_jg354"]
+[ext_resource type="Texture2D" uid="uid://bhi1scmpu0oj6" path="res://textures/Wagyu/others_0003_normal_opengl_1k.png" id="2_kdkvr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fahtp"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mputf"]
+noise = SubResource("FastNoiseLite_fahtp")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8272f"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qjove"]
+noise = SubResource("FastNoiseLite_8272f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ulij"]
+render_priority = 0
+shader = ExtResource("1_jg354")
+shader_parameter/depth_fade_distance = 1.0
+shader_parameter/absorbance = 2.0
+shader_parameter/shallow_color = Color(0.219608, 0.658824, 1, 1)
+shader_parameter/deep_color = Color(0, 0.25, 0.45, 1)
+shader_parameter/foam_amount = 0.2
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/roughness = 0.05
+shader_parameter/wave_scale = 4.0
+shader_parameter/height_scale = 0.15
+shader_parameter/wave_dir1 = Vector2(1, 0)
+shader_parameter/wave_dir2 = Vector2(0, 1)
+shader_parameter/wave_speed = 0.015
+shader_parameter/foam_noise = SubResource("NoiseTexture2D_mputf")
+shader_parameter/wave_texture = SubResource("NoiseTexture2D_qjove")
+shader_parameter/normal1 = ExtResource("2_kdkvr")
+shader_parameter/normal2 = ExtResource("2_kdkvr")
+
+[sub_resource type="BoxMesh" id="BoxMesh_nhro3"]
+material = SubResource("ShaderMaterial_3ulij")
+
+[node name="WaterBucket" type="RigidBody3D"]
+freeze = true
+freeze_mode = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nhro3")
