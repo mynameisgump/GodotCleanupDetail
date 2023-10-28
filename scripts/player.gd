@@ -175,11 +175,6 @@ func handle_sponge():
 
 	if sponge.current_blood == 3:
 		pass
-#	if not sponge_collision.disabled:
-#		var overlapped = sponge_hit.get_overlapping_areas();
-#		if overlapped.size() > 0:
-#			for area in overlapped:
-#				area.queue_free();
 
 func _physics_process(delta):
 	handle_movement(delta)
