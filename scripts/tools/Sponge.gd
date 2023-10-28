@@ -19,8 +19,3 @@ func soak():
 func clear():
 	current_blood = 0;
 	set_color();
-	
-
-func _physics_process(delta):
-	pass
-

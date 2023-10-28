@@ -18,7 +18,5 @@ func _input(event : InputEvent) -> void:
 		character.rotation.y -= event.relative.x * MOUSE_SENS * 0.001
 		character.rotation.y = wrapf(character.rotation.y, 0.0, TAU)
 
-
 func _on_player_begin_rotating(value):
 	rotating = value
-	pass # Replace with function body.

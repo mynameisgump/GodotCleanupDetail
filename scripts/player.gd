@@ -56,7 +56,7 @@ signal begin_rotating(value);
 
 var equipped = "Sponge";
 
-@onready var sponge = $PlayerBody/PlayerHead/Sponge;
+@onready var sponge: Sponge = $PlayerBody/PlayerHead/Sponge;
 @onready var sponge_animation = $AnimationPlayer
 
 func _input(event : InputEvent) -> void:
@@ -101,10 +101,8 @@ func on_grabber_collision(collision_object):
 				grabbed_item = collision_object;
 				grabbed_item.apply_central_impulse(Vector3.UP * 1);
 
-
 func can_be_picked(object): 
 	return object.has_method("update_velocity") 
-
 
 func is_moving():
 	return Input.is_action_pressed("move_left") or \
@@ -172,8 +170,10 @@ func handle_sponge():
 	if equipped == "Sponge":
 		if Input.is_action_just_pressed("left_mouse"):
 			sponge_animation.play("sponge_attack");
-
-	if sponge.current_blood == 3:
+			# print(sponge.get_slide_collision(0));
+	print(sponge.is_colliding)
+	if sponge.current_blood > sponge.max_blood :
+		print("Blood stain time")
 		pass
 
 func _physics_process(delta):

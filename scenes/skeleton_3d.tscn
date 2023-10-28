@@ -80,12 +80,12 @@ mesh = SubResource("ArrayMesh_ahp1c")
 skin = SubResource("Skin_xtvvj")
 
 [node name="Physical Bone Forearm" type="PhysicalBone3D" parent="."]
-transform = Transform3D(0.998587, -0.000400161, -0.0531388, -0.0468654, -0.47861, -0.876774, -0.0250512, 0.878021, -0.477956, -0.0276668, 0.185323, 0.138609)
+transform = Transform3D(0.998587, -0.000398051, -0.0531388, -0.0468654, -0.47861, -0.876774, -0.0250512, 0.878021, -0.477956, -0.0276668, 0.185323, 0.138609)
 collision_layer = 64
 collision_mask = 99
 joint_type = 5
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20374e-08, -7.7212e-05, 0.38266)
-body_offset = Transform3D(1, 3.52197e-05, -4.88018e-09, -3.40754e-09, 0.000203876, -0.999999, -4.78776e-08, 0.999994, 0.000201922, -7.45058e-09, 0.38266, -5.58794e-08)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22001e-08, -7.7212e-05, 0.38266)
+body_offset = Transform3D(1, 3.73264e-05, -4.88018e-09, -3.40754e-09, 0.000203995, -0.999999, -4.78776e-08, 0.999994, 0.000201922, -7.45058e-09, 0.38266, -5.58794e-08)
 bone_name = "Forearm"
 joint_constraints/x/linear_limit_enabled = true
 joint_constraints/x/linear_limit_upper = 0.0
