@@ -63,6 +63,57 @@ subsurf_scatter_texture = ExtResource("7_5tutl")
 radius = 0.1
 height = 0.28
 
+[sub_resource type="Animation" id="Animation_0hyf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerBody/PlayerHead/Sponge/SpongePhysicalCollision:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerBody/PlayerHead/Sponge:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.49, -0.439, -0.656)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerBody/PlayerHead/Sponge:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.61238e-10, -1.37881, -0.855211)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerBody/PlayerHead/Sponge/SpongeCast:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_efitf"]
 resource_name = "sponge_attack"
 length = 0.2
@@ -116,57 +167,6 @@ tracks/3/keys = {
 "values": [false, true, false]
 }
 
-[sub_resource type="Animation" id="Animation_0hyf3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerBody/PlayerHead/Sponge/SpongePhysicalCollision:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerBody/PlayerHead/Sponge:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.49, -0.439, -0.656)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerBody/PlayerHead/Sponge:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(2.61238e-10, -1.37881, -0.855211)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerBody/PlayerHead/Sponge/SpongeCast:enabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrdlk"]
 _data = {
 "RESET": SubResource("Animation_0hyf3"),
@@ -195,7 +195,7 @@ target_position = Vector3(2.08165e-12, 2.08165e-12, -5)
 collision_mask = 64
 
 [node name="Sponge" type="CharacterBody3D" parent="PlayerBody/PlayerHead" groups=["Sponge"]]
-transform = Transform3D(0.312955, 0.360013, -2.45407, -1.88677, 1.64015, -6.53095e-10, 1.61001, 1.85211, 0.477022, 0.49, -0.439, -0.656)
+transform = Transform3D(0.312954, 0.360014, -2.45407, -1.88677, 1.64015, -6.53096e-10, 1.61001, 1.85211, 0.477023, 0.49, -0.439, -0.656)
 collision_layer = 32
 script = ExtResource("3_7pjug")
 
