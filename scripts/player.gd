@@ -99,8 +99,8 @@ func on_grabber_collision(collision_object):
 				print("Grabbing")
 				grabbed_item_rel_pos = head.to_local(collision_object.position);
 				grabbed_item = collision_object;
-				grabbed_item.can_sleep = false;
-				# grabbed_item.apply_central_impulse(Vector3.UP * 1);
+				#grabbed_item.can_sleep = false;
+				grabbed_item.apply_central_impulse(Vector3.UP * 1);
 
 func can_be_picked(object): 
 	return object.has_method("update_velocity") 

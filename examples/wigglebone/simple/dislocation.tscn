@@ -25,7 +25,7 @@ bones/1/scale = Vector3(1, 1, 1)
 script = ExtResource("1_s2rxf")
 
 [node name="WiggleBone" type="BoneAttachment3D" parent="Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0925926, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0927868, 0)
 bone_name = "bone1"
 bone_idx = 0
 script = ExtResource("4")
