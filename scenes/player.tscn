@@ -201,16 +201,15 @@ offset_bottom = 648.0
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="PlayerBody/PlayerHead/SubViewportContainer"]
-transparent_bg = true
+own_world_3d = true
+handle_input_locally = false
 size = Vector2i(1152, 648)
-render_target_clear_mode = 1
 render_target_update_mode = 4
 
 [node name="HandCam" type="Camera3D" parent="PlayerBody/PlayerHead/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.5, 2.08165e-12)
 cull_mask = 4
 current = true
-fov = 179.0
 near = 0.081
 
 [node name="Sponge" type="CharacterBody3D" parent="PlayerBody/PlayerHead" groups=["Sponge"]]
